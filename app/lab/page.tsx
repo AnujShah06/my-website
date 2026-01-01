@@ -405,11 +405,12 @@ export default function Page() {
                   onClick={() => setActiveExp(idx)}
                 >
                   <div className={styles.expOneLine}>
-                    {e.org} — {e.role}
+                    {e.orglabel}
                   </div>
                 </button>
               ))}
             </div>
+
 
             <div className={styles.expDetail} aria-label="Experience details">
               <div className={styles.expHead}>
@@ -422,14 +423,16 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className={styles.expSummary}>{exp.summaryFront}</div>
-
               <div className={styles.hl}>
-                {exp.highlights.map((h) => (
-                  <div key={h} className={styles.hlItem}>
-                    {h}
-                  </div>
-                ))}
+                {exp.highlights.map((h, i) => {
+                  const text = String(h).replace(/^→\s*/, "").replace(/^->\s*/, "");
+                  return (
+                    <div key={`${text}-${i}`} className={styles.hlItem}>
+                      <span className={styles.hlIcon} aria-hidden="true">→</span>
+                      <span className={styles.hlText}>{text}</span>
+                    </div>
+                  );
+                })}
               </div>
 
               <div className={styles.tags}>

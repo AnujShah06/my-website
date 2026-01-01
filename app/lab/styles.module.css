@@ -404,10 +404,9 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
+  width: 100%;
 }
-@media (min-width: 920px) {
-  .expSplit { grid-template-columns: 290px 1fr; gap: 18px; }
-}
+
 
 .expIndex {
   border-radius: 18px;
@@ -415,7 +414,45 @@
   background: rgba(255,255,255,0.02);
   overflow: hidden;
 }
+/* Decorative divider between index and details (simple blue line + real spacing) */
+@media (min-width: 920px) {
+  .expSplit {
+    /* keep these in one place so the divider math always matches the grid */
+    --expLeftCol: clamp(180px, 22vw, 220px);
+    --expGap: 44px;
 
+    grid-template-columns: var(--expLeftCol) 1fr;
+    gap: var(--expGap);
+
+    position: relative;
+  }
+
+  .expSplit::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    height: 50%;
+    left: calc(var(--expLeftCol) + (var(--expGap) / 2));
+    width: 2px;
+    border-radius: 999px;
+
+    /* strong cyan line with soft fade at the ends */
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(56,189,248,0.85),
+      rgba(56,189,248,0.55),
+      rgba(56,189,248,0.85),
+      transparent
+    );
+
+    box-shadow:
+      0 0 18px rgba(56,189,248,0.22),
+      0 0 2px rgba(56,189,248,0.55);
+
+    pointer-events: none;
+  }
+}
 .expItem {
   width: 100%;
   text-align: left;
@@ -427,6 +464,28 @@
   border-left: 2px solid transparent;
   transition: background 140ms ease, border-left-color 140ms ease;
 }
+/* Experience highlights: wrapped lines align with sentence start (not under arrow) */
+.hlItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* If you had an old pseudo-arrow on .hlItem, kill it to avoid double arrows */
+.hlItem::before {
+  content: none !important;
+}
+
+.hlIcon {
+  flex: 0 0 auto;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+
+.hlText {
+  flex: 1 1 auto;
+  min-width: 0; /* important for wrapping inside flex */
+}
 .expItem:hover { background: rgba(255,255,255,0.02); }
 .expItem:last-child { border-bottom: none; }
 
@@ -437,6 +496,7 @@
 
 .expOneLine {
   font-weight: 620;
+  text-align: center;
   letter-spacing: -0.01em;
   color: rgba(255,255,255,0.72);
   font-size: 13px;
@@ -447,10 +507,15 @@
 .expItemActive .expOneLine { color: rgba(255,255,255,0.90); }
 
 .expDetail {
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(255,255,255,0.028);
-  padding: 16px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+
+  padding: 0;
+  border-radius: 0;
+  overflow: visible;
+  max-width: none;
 }
 
 .expHead {
