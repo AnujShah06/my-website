@@ -111,15 +111,15 @@ export const projects = [
     desc: "Statistical and ML analysis of how basement, first-floor, and second-floor square footage differently impact home prices.",
     bullets: [
       "Diagnosed multicollinearity (VIF > 100) and heteroscedasticity (Breusch-Pagan test); applied log transformation and bootstrap inference (2,000 reps) for robust standard errors.",
-      "Validated with 10-fold cross-validation and Extra Sum of Squares F-tests; extended with Elastic Net regularization (R² improved from 0.62 to 0.79).",
-      "Modular R codebase with reproducible figures, Shapiro-Wilk normality checks, and clear documentation.",
+      "Validated with 10-fold cross-validation and Extra Sum of Squares F-tests; confirmed model generalization with identical training/CV RMSE.",
+      "Extended with Ridge, Lasso, and Elastic Net regularization; expanded to 10 predictors and improved R² from 0.62 to 0.79.",
     ],
     tags: ["R", "Regression", "Bootstrap", "Regularization", "Cross-Validation"],
     link: { label: "GitHub", href: "https://github.com/AnujShah06/ML-ames-housing-analysis" },
   },
   {
     title: "Radar Signal Processing Simulator",
-    desc: "Real-time radar simulation demonstrating signal processing pipelines, target detection algorithms, and multi-target tracking with Kalman filtering.",
+    desc: "Radar simulation demonstrating signal processing pipelines, target detection algorithms, and multi-target tracking with Kalman filtering.",
     bullets: [
       "Implemented 4-state Kalman filter (position + velocity) with prediction/update cycles; built track lifecycle management (tentative → confirmed → terminated) using nearest-neighbor data association.",
       "Designed modular signal processing pipeline: radar range equation → noise filtering (moving average, exponential smoothing) → SNR-based threshold detection → clustering → target classification (aircraft/ship/weather).",
