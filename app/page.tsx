@@ -421,7 +421,7 @@ export default function Page() {
 
             {/* Image: on background (NOT inside the glass panel) */}
             <div className={styles.aboutPhotoWrap} aria-label="Portrait">
-              <img className={styles.aboutPhoto} src="/portraits/me.jpg" alt="Portrait" loading="lazy" decoding="async" />
+              <img className={styles.aboutPhoto} src="/portraits/me.png" alt="Portrait" loading="lazy" decoding="async" />
             </div>
           </div>
         </Section>
