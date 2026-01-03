@@ -16,6 +16,7 @@ export const quotes: string[] = [
   "You’re free to make decisions but not free from the consequences.",
   "Justice is merely a construct of the current powerbase.",
   "The only history that is worth a tinker's damn is the history we make today.",
+  "Eternal vigilance is the price of liberty",
 ];
 
 export const experience = [
@@ -141,11 +142,14 @@ export const projects = [
 ];
 
 export const gallery = [
-  { title: "hackathon" },
-  { title: "travel" },
-  { title: "campus" },
-  { title: "friends" },
-  { title: "builds" },
-  { title: "coffee" },
-  { title: "misc" },
+  { title: "Purdue x Google AI Summit", src: "/gallery/ai.png" },
+  { title: "Meeting with Senator Young!", src: "/gallery/senator.png" },
+  { title: "Full Access to Battle of the Bricks at IMS", src: "/gallery/ims.png" },
+  { title: "Final Presentation for V2X x Data Mine", src: "/gallery/v2x.png" },
+  { title: "PURDUE PETE!!!", src: "/gallery/pete.png" },
+  { title: "MIRA Awards Tech Show ", src: "/gallery/mira.png" },
+  { title: "Performance Racing Industry Convention", src: "/gallery/pri.png" },
+  { title: "International. Manufacturing and Technology Show in Chicago", src: "/gallery/imts.png" },
+  { title: "First Day of College", src: "/gallery/firstday.png" },
+  { title: "HS Graduation!!!", src: "/gallery/lastday.png" },
 ];

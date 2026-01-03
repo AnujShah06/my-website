@@ -231,6 +231,9 @@ export default function Page() {
   const [activeProject, setActiveProject] = useState(0);
   const proj = projects[Math.max(0, Math.min(activeProject, projects.length - 1))];
 
+  const [activeGallery, setActiveGallery] = useState(0);
+  const gItem = gallery[Math.max(0, Math.min(activeGallery, gallery.length - 1))];
+
   return (
     <main className={styles.shell}>
       <div className={styles.bg} />
@@ -281,7 +284,9 @@ export default function Page() {
               </div>
 
               <div className={styles.heroIntro}>
-              I’m a <span className={styles.accent}>Computer Science</span> student at Purdue University with a concentration in <span className={styles.accent}>Machine Learning</span>. I enjoy learning the problems different industries face and buliding <span className={styles.accent}>data-driven</span> solutions to try my best in solving them. 
+                I’m a <span className={styles.accent}>Computer Science</span> student at Purdue University with a concentration in{" "}
+                <span className={styles.accent}>Machine Learning</span>. I enjoy learning the problems different industries face and buliding{" "}
+                <span className={styles.accent}>data-driven</span> solutions to try my best in solving them.
               </div>
 
               <div className={styles.heroSub}>
@@ -291,111 +296,90 @@ export default function Page() {
           </div>
         </header>
 
-        <Section
-          id="about"
-          navLabel="About"
-          label="/about_me"
-          title=""
-          subtitle=""
-        >
-        <div
-          className={styles.aboutSplit}
-          style={{
-            marginTop: 16,
-            gridTemplateColumns: "1.35fr 0.65fr",
-            columnGap: 100,
-          }}
-        >
-          {/* Glass panel: text only */}
+        <Section id="about" navLabel="About" label="/about_me" title="" subtitle="">
           <div
-            className={`${styles.panel} ${styles.aboutPanel}`}
-            style={{ width: "100%", maxWidth: "unset" }}
+            className={styles.aboutSplit}
+            style={{
+              marginTop: 16,
+              gridTemplateColumns: "1.35fr 0.65fr",
+              columnGap: 100,
+            }}
           >
-            <div style={{ color: "rgba(255,255,255,0.74)", lineHeight: 1.85, maxWidth: "78ch" }}>
-              <p style={{ margin: 0 }}>
-                I’m currently a ML Data Engineer at Team ACP Racing where I'm building a Python ETL pipeline to capture live data to conduct race strategy adjustments.
-              </p>
-              <p style={{ margin: "12px 0 0 0" }}>
-                I'm currently in my junior year pursuing my bachelors in Computer Science at Purdue University.
-              </p>
+            {/* Glass panel: text only */}
+            <div className={`${styles.panel} ${styles.aboutPanel}`} style={{ width: "100%", maxWidth: "unset" }}>
+              <div style={{ color: "rgba(255,255,255,0.74)", lineHeight: 1.85, maxWidth: "78ch" }}>
+                <p style={{ margin: 0 }}>
+                  I’m currently a ML Data Engineer at Team ACP Racing where I'm building a Python ETL pipeline to capture live data to conduct race strategy adjustments.
+                </p>
+                <p style={{ margin: "12px 0 0 0" }}>
+                  I'm currently in my junior year pursuing my bachelors in Computer Science at Purdue University.
+                </p>
 
-              <div
-                style={{
-                  marginTop: 14,
-                  paddingLeft: 12,
-                  borderLeft: "3px solid rgba(86, 198, 255, 0.9)",
-                  color: "rgba(255,255,255,0.82)",
-                }}
-              >
-                <span className={styles.accent}>Here are some technologies I work with often:</span>
+                <div
+                  style={{
+                    marginTop: 14,
+                    paddingLeft: 12,
+                    borderLeft: "3px solid rgba(86, 198, 255, 0.9)",
+                    color: "rgba(255,255,255,0.82)",
+                  }}
+                >
+                  <span className={styles.accent}>Here are some technologies I work with often:</span>
+                </div>
+
+                <div
+                  style={{
+                    marginTop: 12,
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                    gap: 12,
+                    color: "rgba(255,255,255,0.72)",
+                  }}
+                >
+                  <ul style={{ margin: 0, paddingLeft: 50, listStyle: "none" }}>
+                    <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
+                      <span className={styles.dot} aria-hidden="true" />
+                      Python
+                    </li>
+                    <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
+                      <span className={styles.dot} aria-hidden="true" />
+                      Pandas / NumPy
+                    </li>
+                    <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
+                      <span className={styles.dot} aria-hidden="true" />
+                      scikit-learn
+                    </li>
+                  </ul>
+
+                  <ul style={{ margin: 0, paddingLeft: 0, listStyle: "none" }}>
+                    <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
+                      <span className={styles.dot} aria-hidden="true" />
+                      PyTorch
+                    </li>
+                    <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
+                      <span className={styles.dot} aria-hidden="true" />
+                      SQL
+                    </li>
+                    <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
+                      <span className={styles.dot} aria-hidden="true" />
+                      R
+                    </li>
+                  </ul>
+                </div>
+
+                <p style={{ margin: "14px 0 0 0", color: "rgba(255,255,255,0.70)" }}>
+                  Outside of work, you’ll usually find me hiking, playing anything that involves a racket or paddle, and catching Steelers games. Oh! I'm also an avid mixologist.
+                </p>
               </div>
+            </div>
 
-              <div
-                style={{
-                  marginTop: 12,
-                  display: "grid",
-                  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-                  gap: 12,
-                  color: "rgba(255,255,255,0.72)",
-                }}
-              >
-                <ul style={{ margin: 0, paddingLeft: 50, listStyle: "none" }}>
-                  <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
-                    <span className={styles.dot} aria-hidden="true" />
-                    Python
-                  </li>
-                  <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
-                    <span className={styles.dot} aria-hidden="true" />
-                    Pandas / NumPy
-                  </li>
-                  <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
-                    <span className={styles.dot} aria-hidden="true" />
-                    scikit-learn
-                  </li>
-                </ul>
-
-                <ul style={{ margin: 0, paddingLeft: 0, listStyle: "none" }}>
-                  <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
-                    <span className={styles.dot} aria-hidden="true" />
-                    PyTorch
-                  </li>
-                  <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
-                    <span className={styles.dot} aria-hidden="true" />
-                    SQL
-                  </li>
-                  <li style={{ display: "flex", alignItems: "center", gap: 10, padding: "6px 0" }}>
-                    <span className={styles.dot} aria-hidden="true" />
-                    R
-                  </li>
-                </ul>
-              </div>
-
-              <p style={{ margin: "14px 0 0 0", color: "rgba(255,255,255,0.70)" }}>
-                Outside of work, you’ll usually find me hiking, playing anything that involves a racket or paddle, and catching Steelers games. Oh! I'm also an avid mixologist.
-              </p>
+            {/* Image: on background (NOT inside the glass panel) */}
+            <div className={styles.aboutPhotoWrap} aria-label="Portrait">
+              <img className={styles.aboutPhoto} src="/portraits/me.jpg" alt="Portrait" loading="lazy" decoding="async" />
             </div>
           </div>
-
-          {/* Image: on background (NOT inside the glass panel) */}
-          <div className={styles.aboutPhotoWrap} aria-label="Portrait">
-            <img
-              className={styles.aboutPhoto}
-              src="/portraits/me.jpg"
-              alt="Portrait"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
         </Section>
 
-        <Section
-          id="experiences"
-          navLabel="Experiences"
-          label="/experiences"
-          title=""
-          subtitle=""
-        >
+        <Section id="experiences" navLabel="Experiences" label="/experiences" title="" subtitle="">
           <div className={styles.expSplit}>
             <div className={styles.expIndex} aria-label="Experience index">
               {experience.map((e, idx) => (
@@ -404,65 +388,67 @@ export default function Page() {
                   className={`${styles.expItem} ${idx === activeExp ? styles.expItemActive : ""}`}
                   onClick={() => setActiveExp(idx)}
                 >
-                  <div className={styles.expOneLine}>
-                    {e.orglabel}
-                  </div>
+                  <div className={styles.expOneLine}>{e.orglabel}</div>
                 </button>
               ))}
             </div>
 
-
             <div className={styles.expDetail} aria-label="Experience details">
-              <div className={styles.expHead}>
-                <div>
-                  <div className={styles.expTitle}>{exp.role}</div>
-                  <div className={styles.expOrgLine}>{exp.org}</div>
+              {/* ✅ Animated wrapper: key changes every selection so the animation replays */}
+              <div
+                key={activeExp}
+                style={{
+                  animation: "expRevealFromDivider 950ms cubic-bezier(0.18, 0.9, 0.22, 1) both",
+                  transformOrigin: "left center",
+                  willChange: "transform, opacity, filter, clip-path",
+                }}
+              >
+                <div className={styles.expHead}>
+                  <div>
+                    <div className={styles.expTitle}>{exp.role}</div>
+                    <div className={styles.expOrgLine}>{exp.org}</div>
+                  </div>
+                  <div className={styles.mono} style={{ color: "rgba(255,255,255,0.50)", fontSize: 12 }}>
+                    {exp.time}
+                    {exp.location ? ` · ${exp.location}` : ""}
+                  </div>
                 </div>
-                <div className={styles.mono} style={{ color: "rgba(255,255,255,0.50)", fontSize: 12 }}>
-                  {exp.time}{exp.location ? ` · ${exp.location}` : ""}
+
+                <div className={styles.hl}>
+                  {exp.highlights.map((h, i) => {
+                    const text = String(h).replace(/^→\s*/, "").replace(/^->\s*/, "");
+                    return (
+                      <div key={`${text}-${i}`} className={styles.hlItem}>
+                        <span className={styles.hlIcon} aria-hidden="true">→</span>
+                        <span className={styles.hlText}>{text}</span>
+                      </div>
+                    );
+                  })}
                 </div>
-              </div>
 
-              <div className={styles.hl}>
-                {exp.highlights.map((h, i) => {
-                  const text = String(h).replace(/^→\s*/, "").replace(/^->\s*/, "");
-                  return (
-                    <div key={`${text}-${i}`} className={styles.hlItem}>
-                      <span className={styles.hlIcon} aria-hidden="true">→</span>
-                      <span className={styles.hlText}>{text}</span>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className={styles.tags}>
-                {exp.stack.map((t) => (
-                  <span key={t} className={styles.tag}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              {exp.links?.length ? (
-                <div style={{ marginTop: 10, display: "flex", gap: 12, flexWrap: "wrap" }}>
-                  {exp.links.map((l) => (
-                    <Link key={l.href} href={l.href} target="_blank" rel="noreferrer" className={styles.inlineLink}>
-                      {l.label} →
-                    </Link>
+                <div className={styles.tags}>
+                  {exp.stack.map((t) => (
+                    <span key={t} className={styles.tag}>
+                      {t}
+                    </span>
                   ))}
                 </div>
-              ) : null}
+
+                {exp.links?.length ? (
+                  <div style={{ marginTop: 10, display: "flex", gap: 12, flexWrap: "wrap" }}>
+                    {exp.links.map((l) => (
+                      <Link key={l.href} href={l.href} target="_blank" rel="noreferrer" className={styles.inlineLink}>
+                        {l.label} →
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
         </Section>
 
-        <Section
-          id="projects"
-          navLabel="Projects"
-          label="/projects"
-          title=""
-          subtitle=""
-        >
+        <Section id="projects" navLabel="Projects" label="/projects" title="" subtitle="">
           <div className={styles.projShelf}>
             <div className={styles.projRail} aria-label="Project shelf">
               {projects.map((p, idx) => (
@@ -492,8 +478,12 @@ export default function Page() {
             </div>
 
             <div className={styles.projDetail} aria-label="Selected project details">
-              <div className={styles.expTitle} style={{ fontSize: 18 }}>{proj.title}</div>
-              <div className={styles.expSummary} style={{ marginTop: 10 }}>{proj.desc}</div>
+              <div className={styles.expTitle} style={{ fontSize: 18 }}>
+                {proj.title}
+              </div>
+              <div className={styles.expSummary} style={{ marginTop: 10 }}>
+                {proj.desc}
+              </div>
 
               <div className={styles.bullets}>
                 {proj.bullets.map((b) => (
@@ -520,36 +510,52 @@ export default function Page() {
           </div>
         </Section>
 
-        <Section
-          id="gallery"
-          navLabel="Gallery"
-          label="/film_strip"
-          title=""
-          subtitle=""
-        >
-          <div className={styles.thumbRail} aria-label="Gallery thumbnails">
-            {gallery.map((g) => (
-              <div key={g.title} className={styles.thumb} aria-label={g.title}>
-                <div className={styles.thumbLabel}>{g.title}</div>
-              </div>
-            ))}
+        <Section id="gallery" navLabel="Gallery" label="/film_strip" title="" subtitle="">
+          <div className={styles.gallerySplit} aria-label="Gallery">
+            {/* Left: big preview */}
+            <div className={styles.galleryPreview} aria-label={`Preview: ${gItem.title}`}>
+              <img
+                className={styles.galleryPreviewImg}
+                src={gItem.src}
+                alt={gItem.title}
+                loading="eager"
+                decoding="async"
+              />
+              <div className={styles.galleryPreviewLabel}>{gItem.title}</div>
+            </div>
+
+            {/* Right: 4 x N grid */}
+            <div className={styles.galleryGrid} aria-label="Gallery thumbnails grid">
+              {gallery.map((g, idx) => (
+                <button
+                  key={g.title}
+                  type="button"
+                  className={`${styles.galleryThumb} ${idx === activeGallery ? styles.galleryThumbActive : ""}`}
+                  onMouseEnter={() => setActiveGallery(idx)}
+                  onFocus={() => setActiveGallery(idx)}
+                  onClick={() => setActiveGallery(idx)}
+                  aria-label={`Preview ${g.title}`}
+                  aria-current={idx === activeGallery ? "true" : undefined}
+                >
+                  <img
+                    className={styles.galleryThumbImg}
+                    src={g.src}
+                    alt={g.title}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
         </Section>
 
-        <Section
-          id="contact"
-          navLabel="Contact"
-          label="/say_hi!"
-          title=""
-          subtitle=""
-        >
+        <Section id="contact" navLabel="Contact" label="/say_hi!" title="" subtitle="">
           <div className={styles.contactStack}>
             <div className={styles.contactWide}>
               <div>
                 <div className={styles.contactEmail}>anujshah7567@gmail.com</div>
-                <div className={styles.contactNote}>
-                  Feel free to reach out - I'll reply when I can.
-                </div>
+                <div className={styles.contactNote}>Feel free to reach out - I'll reply when I can.</div>
               </div>
 
               <div className={styles.contactActions}>
@@ -567,6 +573,33 @@ export default function Page() {
           <span>© {new Date().getFullYear()} Anuj</span>
         </footer>
       </div>
+
+      {/* ✅ Keyframes injected from page.tsx so you don't need to touch CSS */}
+      <style jsx global>{`
+        @keyframes expRevealFromDivider {
+          0% {
+            opacity: 0;
+            transform: translateX(-32px);
+            filter: blur(10px);
+            clip-path: inset(0 100% 0 0);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+            filter: blur(0);
+            clip-path: inset(0 0 0 0);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          [style*="expRevealFromDivider"] {
+            animation: none !important;
+            clip-path: none !important;
+            transform: none !important;
+            filter: none !important;
+          }
+        }
+      `}</style>
     </main>
   );
 }
